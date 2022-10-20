@@ -69,7 +69,7 @@ function checkPassword(input, min) {
       input,
       `${getFieldName(
         input
-      )} must be at least ${min} characters, one uppercase letter, one lowercase letter, one number and one special character`
+      )} must be at least ${min} characters, one uppercase letter, one lowercase letter, one number and one special character (@$!%*?&)`
     );
   }
 }

@@ -37,9 +37,11 @@ h2 {
 }
 
 .form-control {
-  margin-bottom: 10px;
-  padding-bottom: 20px;
-  position: relative;
+  /* margin-bottom: 10px; */
+  padding-bottom: 10px;
+  /* position: relative; */
+  display: flex;
+  flex-direction: column;
 }
 
 .form-control label {
@@ -71,7 +73,7 @@ h2 {
 
 .form-control small {
   color: var(--error-color);
-  position: absolute;
+  /* position: absolute; */
   bottom: 0;
   left: 0;
   display: block;
