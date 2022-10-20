@@ -30,15 +30,13 @@ function checkEmail(input) {
   }
 }
 
-// Check Required fields
-function checkRequired(inputArr) {
-  inputArr.forEach((input) => {
-    if (input.value.trim() === "") {
-      showError(input, `${getFieldName(input)} is required`);
-    } else {
-      showSuccess(input);
-    }
-  });
+// Check Required Confirmation Password
+function checkConfirmationPass(input) {
+  if (input.value.trim() === "") {
+    showError(input, "Password confirmation is required");
+  } else {
+    showSuccess(input);
+  }
 }
 
 // Check input length
@@ -65,7 +63,7 @@ function checkPasswordsMatch(input1, input2) {
   }
 }
 
-// Get fieldname
+// Get fieldname by Id
 function getFieldName(input) {
   return input.id.charAt(0).toUpperCase().concat(input.id.slice(1));
 }
@@ -74,7 +72,7 @@ function getFieldName(input) {
 form.addEventListener("submit", function (e) {
   e.preventDefault();
 
-  checkRequired([username, email, password, password2]);
+  checkConfirmationPass(password2);
   checkLength(username, 3, 15);
   checkLength(password, 6, 25);
   checkEmail(email);
