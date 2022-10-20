@@ -101,6 +101,10 @@ h2 {
   width: 100%;
 }
 
+.password-container {
+  display: flex;
+}
+
 @media (min-width: 600px) {
   .container {
     width: 400px;
