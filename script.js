@@ -5,6 +5,9 @@ const email = document.getElementById("email");
 const password = document.getElementById("password");
 const password2 = document.getElementById("password2");
 
+const passwordRegExp =
+  /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/g;
+
 // Show input error message
 function showError(input, message) {
   const formControl = input.parentElement;
@@ -39,8 +42,8 @@ function checkConfirmationPass(input) {
   }
 }
 
-// Check input length
-function checkLength(input, min, max) {
+// Check Username length
+function checkUsernameLength(input, min, max) {
   if (input.value.length <= min) {
     showError(
       input,
@@ -53,6 +56,21 @@ function checkLength(input, min, max) {
     );
   } else {
     showSuccess(input);
+  }
+}
+
+// Check Username length
+function checkPassword(input, min) {
+  if (!passwordRegExp.test(input)) {
+    console.log(
+      "Password minimum eight characters, at least one uppercase letter, one lowercase letter, one number and one special character"
+    );
+    showError(
+      input,
+      `${getFieldName(
+        input
+      )} must be at least ${min} characters, one uppercase letter, one lowercase letter, one number and one special character`
+    );
   }
 }
 
@@ -73,8 +91,8 @@ form.addEventListener("submit", function (e) {
   e.preventDefault();
 
   checkConfirmationPass(password2);
-  checkLength(username, 3, 15);
-  checkLength(password, 6, 25);
+  checkUsernameLength(username, 3, 15);
+  checkPassword(password, 8);
   checkEmail(email);
   checkPasswordsMatch(password, password2);
 });
