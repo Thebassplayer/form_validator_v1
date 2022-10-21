@@ -13,7 +13,7 @@
 
 <body>
   <div class="container">
-    <form id="form" class="form">
+    <form id="form" class="form" autocomplete="off">
       <h2>Register With Us</h2>
 
       <div class="form-control">
@@ -30,12 +30,15 @@
 
       <div class="form-control">
         <label for="password">Password</label>
-        <div id="password-container" class="password-container"> <input type="password" id="password"
-            placeholder="Enter password" />
-          <button id="show-hide-password-btn"><i class="fa-regular fa-eye"></i></button>
+        <div id="password-container" class="password-container">
+          <input type="password" id="password" placeholder="Enter password" />
+          <small>Error message</small>
+          <button id="show-hide-password-btn" class="show-hide-password-btn">
+            <i id="visibility-icon" class="fa-regular fa-eye-slash"></i>
+          </button>
         </div>
 
-        <small>Error message</small>
+
       </div>
 
       <div class="form-control">

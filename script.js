@@ -4,43 +4,13 @@ const username = document.getElementById("username");
 const email = document.getElementById("email");
 const password = document.getElementById("password");
 const password2 = document.getElementById("password2");
+const togglePasswordVisibilityBtn = document.getElementById(
+  "show-hide-password-btn"
+);
+const visibilityIcon = document.getElementById("visibility-icon");
 
-const passwordRegExp =
+const passwordValidatorRegExp =
   /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/;
-
-// Show input error message
-function showError(input, message) {
-  const formControl = input.parentElement;
-  formControl.className = "form-control error";
-  const small = formControl.querySelector("small");
-  small.innerText = message;
-}
-
-// Show success outline
-function showSuccess(input) {
-  const formControl = input.parentElement;
-  formControl.className = "form-control success";
-}
-
-// Email validation
-function checkEmail(input) {
-  const re =
-    /[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?/g;
-  if (!re.test(String(input.value).trim().toLocaleLowerCase())) {
-    showError(input, "Email is not valid");
-  } else {
-    showSuccess(input);
-  }
-}
-
-// Check Required Confirmation Password
-function checkConfirmationPass(input) {
-  if (input.value.trim() === "") {
-    showError(input, "Password confirmation is required");
-  } else {
-    showSuccess(input);
-  }
-}
 
 // Check Username length
 function checkUsernameLength(input, min, max) {
@@ -59,9 +29,20 @@ function checkUsernameLength(input, min, max) {
   }
 }
 
+// Email validation
+function checkEmail(input) {
+  const re =
+    /[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?/g;
+  if (!re.test(String(input.value).trim().toLocaleLowerCase())) {
+    showError(input, "Email is not valid");
+  } else {
+    showSuccess(input);
+  }
+}
+
 // Check Password
 function checkPassword(input, min) {
-  if (!passwordRegExp.test(input.value)) {
+  if (!passwordValidatorRegExp.test(input.value)) {
     showError(
       input,
       `${getFieldName(
@@ -73,11 +54,49 @@ function checkPassword(input, min) {
   }
 }
 
+// Check Password Confirmation
+function checkConfirmationPass(input) {
+  if (input.value.trim() === "") {
+    showError(input, "Password confirmation is required");
+  } else {
+    showSuccess(input);
+  }
+}
+
 // Check passwords match
 function checkPasswordsMatch(input1, input2) {
   if (input1.value !== input2.value) {
     showError(input2, "Passwords do not match");
   }
+}
+
+// Show input error message
+function showError(input, message) {
+  const formControl = input.closest(".form-control");
+  formControl.className = "form-control error";
+  const small = formControl.querySelector("small");
+  small.innerText = message;
+}
+
+// Show success outline
+function showSuccess(input) {
+  const formControl = input.closest(".form-control");
+  formControl.className = "form-control success";
+}
+
+// Visibility password button
+function togglePasswordVisibility(element) {
+  element.type === "password"
+    ? (element.type = "text")
+    : (element.type = "password");
+}
+
+// Toggle Visibility password button
+function togglePasswordBtn(btn) {
+  let icon = visibilityIcon.className;
+  icon === "fa-regular fa-eye"
+    ? (visibilityIcon.className = "fa-regular fa-eye-slash")
+    : (visibilityIcon.className = "fa-regular fa-eye");
 }
 
 // Get fieldname by Id
@@ -94,4 +113,11 @@ form.addEventListener("submit", function (e) {
   checkPassword(password);
   checkEmail(email);
   checkPasswordsMatch(password, password2);
+});
+
+togglePasswordVisibilityBtn.addEventListener("click", (e) => {
+  e.preventDefault();
+  togglePasswordVisibility(password);
+  togglePasswordVisibility(password2);
+  togglePasswordBtn(togglePasswordVisibilityBtn);
 });
