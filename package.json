@@ -4,7 +4,9 @@
   "private": "true",
   "description": "",
   "main": "script.js",
-  "scripts": {},
+  "scripts": {
+    "start": "webpack"
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/Thebassplayer/form_validator_v1.git"
