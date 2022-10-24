@@ -1,6 +1,7 @@
 {
   "name": "form_validator",
   "version": "1.0.0",
+  "private": "true",
   "description": "",
   "main": "script.js",
   "scripts": {},
@@ -14,5 +15,9 @@
   "bugs": {
     "url": "https://github.com/Thebassplayer/form_validator_v1/issues"
   },
-  "homepage": "https://github.com/Thebassplayer/form_validator_v1#readme"
+  "homepage": "https://github.com/Thebassplayer/form_validator_v1#readme",
+  "devDependencies": {
+    "webpack": "^5.74.0",
+    "webpack-cli": "^4.10.0"
+  }
 }
