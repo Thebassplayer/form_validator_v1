@@ -1,0 +1,18 @@
+{
+  "name": "form_validator",
+  "version": "1.0.0",
+  "description": "",
+  "main": "script.js",
+  "scripts": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Thebassplayer/form_validator_v1.git"
+  },
+  "keywords": [],
+  "author": "Roy Lopez",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Thebassplayer/form_validator_v1/issues"
+  },
+  "homepage": "https://github.com/Thebassplayer/form_validator_v1#readme"
+}
