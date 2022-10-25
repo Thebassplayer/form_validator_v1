@@ -4,7 +4,7 @@ import {
   checkPasswordsMatch,
 } from "./utils/password-validation";
 import { showError, showSuccess } from "./utils/screen-alerts";
-import { getFieldName } from "./utils/get-field-name";
+import { checkUsernameLength } from "./utils/username-validation";
 
 const form = document.getElementById("form");
 // Text inputs
@@ -16,23 +16,6 @@ const togglePasswordVisibilityBtn = document.getElementById(
   "show-hide-password-btn"
 );
 const visibilityIcon = document.getElementById("visibility-icon");
-
-// Check Username length
-function checkUsernameLength(input, min, max) {
-  if (input.value.length <= min) {
-    showError(
-      input,
-      `${getFieldName(input)} must be at least ${min} characters`
-    );
-  } else if (input.value.length >= max) {
-    showError(
-      input,
-      `${getFieldName(input)} must be less than ${max} characters`
-    );
-  } else {
-    showSuccess(input);
-  }
-}
 
 // Email validation
 function checkEmail(input) {
