@@ -4,6 +4,7 @@ import {
   checkPasswordsMatch,
 } from "./utils/password-validation";
 import { showError, showSuccess } from "./utils/screen-alerts";
+import { getFieldName } from "./utils/get-field-name";
 
 const form = document.getElementById("form");
 // Text inputs
@@ -57,11 +58,6 @@ function togglePasswordBtn(btn) {
   icon === "fa-regular fa-eye"
     ? (visibilityIcon.className = "fa-regular fa-eye-slash")
     : (visibilityIcon.className = "fa-regular fa-eye");
-}
-
-// Get fieldname by Id
-function getFieldName(input) {
-  return input.id.charAt(0).toUpperCase().concat(input.id.slice(1));
 }
 
 // Event listeners & Validation
