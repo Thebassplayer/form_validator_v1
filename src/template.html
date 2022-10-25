@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="apple-touch-icon" sizes="180x180" href="./img/favicon_io/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="./img/favicon_io/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="./img/favicon_io/favicon-16x16.png">
+  <link rel="manifest" href="./img/favicon_io/site.webmanifest">
+  <script src="https://kit.fontawesome.com/9d291e9097.js" crossorigin="anonymous"></script>
+  <title>Form Validator</title>
+</head>
+
+<body>
+  <div class="container">
+    <form id="form" class="form" autocomplete="off">
+      <h2>Form Validator</h2>
+
+      <div class="form-control">
+        <label for="username">Username</label>
+        <input type="text" id="username" placeholder="Enter Username" />
+        <small>Error message</small>
+      </div>
+
+      <div class="form-control">
+        <label for="email">Email</label>
+        <input type="text" id="email" placeholder="Enter email" />
+        <small>Error message</small>
+      </div>
+
+      <div class="form-control">
+        <label for="password">Password</label>
+        <div id="password-container" class="password-container">
+          <input type="password" id="password" placeholder="Enter password" />
+          <small>Error message</small>
+          <button id="show-hide-password-btn" class="show-hide-password-btn">
+            <i id="visibility-icon" class="fa-regular fa-eye-slash"></i>
+          </button>
+        </div>
+
+
+      </div>
+
+      <div class="form-control">
+        <label for="password2">Confirm Password</label>
+        <input type="password" id="password2" placeholder="Repeat your password" />
+        <small>Error message</small>
+      </div>
+      <button>Submit</button>
+    </form>
+  </div>
+
+
+</body>
+
+</html>
