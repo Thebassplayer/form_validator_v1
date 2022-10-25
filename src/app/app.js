@@ -3,8 +3,9 @@ import {
   checkConfirmationPass,
   checkPasswordsMatch,
 } from "./utils/password-validation";
-import { showError, showSuccess } from "./utils/screen-alerts";
 import { checkUsernameLength } from "./utils/username-validation";
+import { checkEmail } from "./utils/email-validation";
+import { toggleInputVisibility } from "./utils/toggle-input-visibility";
 
 const form = document.getElementById("form");
 // Text inputs
@@ -16,24 +17,6 @@ const togglePasswordVisibilityBtn = document.getElementById(
   "show-hide-password-btn"
 );
 const visibilityIcon = document.getElementById("visibility-icon");
-
-// Email validation
-function checkEmail(input) {
-  const re =
-    /[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?/g;
-  if (!re.test(String(input.value).trim().toLocaleLowerCase())) {
-    showError(input, "Email is not valid");
-  } else {
-    showSuccess(input);
-  }
-}
-
-// Visibility password button
-function togglePasswordVisibility(element) {
-  element.type === "password"
-    ? (element.type = "text")
-    : (element.type = "password");
-}
 
 // Toggle Visibility password button
 function togglePasswordBtn(btn) {
@@ -56,7 +39,7 @@ form.addEventListener("submit", function (e) {
 
 togglePasswordVisibilityBtn.addEventListener("click", (e) => {
   e.preventDefault();
-  togglePasswordVisibility(password);
-  togglePasswordVisibility(password2);
+  toggleInputVisibility(password);
+  toggleInputVisibility(password2);
   togglePasswordBtn(togglePasswordVisibilityBtn);
 });
