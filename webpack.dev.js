@@ -5,8 +5,19 @@ const { merge } = require("webpack-merge");
 module.exports = merge(common, {
   mode: "development",
   output: {
-    filename: "main.js",
+    filename: "[name].bundle.js",
     path: path.resolve(__dirname, "dist"),
     assetModuleFilename: "images/[name][ext]",
+  },
+  module: {
+    rules: [
+      {
+        test: /\.css$/,
+        use: [
+          "style-loader", // 2. Inject styles into DOM
+          "css-loader", // 1. Turn CSS into common.js
+        ],
+      },
+    ],
   },
 });
