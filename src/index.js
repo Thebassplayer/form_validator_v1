@@ -7,7 +7,7 @@ import { checkUsernameLength } from "./app/utils/username-validation";
 import { checkEmail } from "./app/utils/email-validation";
 import { toggleInputVisibility } from "./app/utils/toggle-input-visibility";
 import { toggleBtnIcon } from "./app/utils/toggle-btn-icon";
-import "../style/style.css";
+import "./style/style.css";
 
 const form = document.getElementById("form");
 
