@@ -33,6 +33,14 @@ module.exports = merge(common, {
           "css-loader", // 1. Turn CSS into common.js
         ],
       },
+      {
+        test: /\.js$/,
+        exclude: /node_modules/,
+        loader: "babel-loader",
+        options: {
+          presets: ["@babel/preset-env"],
+        },
+      },
     ],
   },
 });
