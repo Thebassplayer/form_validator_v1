@@ -20,8 +20,8 @@ const username = document.getElementById("username"),
     "show-hide-password-btn"
   );
 const visibilityIcon = document.getElementById("visibility-icon");
-const showTextIcon = "fa-regular fa-eye",
-  hideTextIcon = "fa-regular fa-eye-slash";
+const showTextIcon = "fa-regular fa-eye";
+const hideTextIcon = "fa-regular fa-eye-slash";
 
 // Event listeners & Validation
 form.addEventListener("submit", function (e) {
